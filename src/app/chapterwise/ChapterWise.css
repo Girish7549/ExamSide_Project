@@ -1,0 +1,41 @@
+.cards{
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 1rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.heding{
+    font-size: 1.4rem;
+    margin-left: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.sub{
+    font-size: 1.7rem;
+    margin-left: 1rem;
+    margin-top: .6rem;
+}
+.card{
+    background-color: #f0f0f0;
+}
+.card-body a{
+    background-color: #5751e1;
+    border: none;
+}
+.card-body a:hover{
+    background-color: #ffc224;
+    transition: 1s;
+}
+.Electricity{
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 1rem;   
+}
+
+.card-text{
+font-size: smaller;
+}
