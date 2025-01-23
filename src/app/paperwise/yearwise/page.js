@@ -1,6 +1,5 @@
 'use client'
-import BottomNavBar from "@/app/Components/BottomNavBar";
-import TopNavBar from "@/app/Components/TopNavBar";
+import Navbar from "@/app/Components/Navbar/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useRouter } from 'next/navigation';
 
@@ -13,8 +12,7 @@ const yearwise = () => {
 
   return (
     <>
-      <TopNavBar />
-      <BottomNavBar />
+      <Navbar/>
       <div className="bg-body-tertiary">
         <div className="p-4">
           <div className="d-flex col gap-3">

@@ -1,161 +1,109 @@
 "use client";
-import React, { useEffect } from "react";
+import { useState } from "react";
+import "./Faq.css";
 
-const FAQ = () => {
-  useEffect(() => {
-    // Add event listeners to toggle FAQs
-    const faqItems = document.querySelectorAll(".faq-item");
-    faqItems.forEach((item) => {
-      item.addEventListener("click", () => {
-        const isActive = item.classList.contains("active");
-        faqItems.forEach((faq) => faq.classList.remove("active")); // Close all FAQs
-        if (!isActive) {
-          item.classList.add("active"); // Open the clicked FAQ
-        }
-      });
-    });
+const data = [
+  {
+    question: "How do I place an order?",
+    answer:
+      "To place an order, simply open the app, browse through the menu, select the items you'd like to order, and proceed to checkout. Follow the prompts to provide delivery details and complete your order.",
+  },
+  {
+    question: "What payment methods do you accept?",
+    answer:
+      "We accept various payment methods including credit/debit cards, digital wallets (such as Apple Pay, Google Pay), and cash on delivery (where available). You can choose your preferred payment method during checkout.",
+  },
+  {
+    question: "How can I track my order?",
+    answer:
+      "Once your order is confirmed, you'll receive a confirmation message with an estimated delivery time. You can track the status of your order in real-time through the app. Additionally, you'll receive notifications at each stage of the delivery process.",
+  },
+  {
+    question: "Can I customize my order?",
+    answer:
+      "Yes, you can customize your order according to your preferences. Our app allows you to add special instructions or make modifications to your items before placing the order. Simply specify your requirements in the order notes section during checkout.",
+  },
+  {
+    question: "What if I have food allergies or dietary restrictions?",
+    answer:
+      "We take food allergies and dietary restrictions seriously. Our menu includes options for various dietary preferences such as vegetarian, vegan, gluten-free, etc. You can filter the menu based on your dietary requirements or reach out to our customer support team for assistance in selecting suitable options.",
+  },
+  {
+    question: "Is there a minimum order requirement for delivery?",
+    answer:
+      "The minimum order requirement for delivery may vary depending on your location and the restaurant you're ordering from. You can check the minimum order amount for each restaurant listed in the app before placing your order.",
+  },
+  {
+    question: "What if I need to cancel my order?",
+    answer:
+      "If you need to cancel your order, please do so as soon as possible before it is prepared for delivery. You can cancel the order directly from the app by navigating to your order history and selecting the cancel option. Please note that orders already in preparation cannot be canceled.",
+  },
+  {
+    question: "How do I provide feedback or report an issue with my order?",
+    answer:
+      "Your feedback is important to us! If you have any issues with your order or if you'd like to provide feedback, you can contact our customer support team through the app. We're here to assist you and ensure your experience is satisfactory.",
+  },
+  {
+    question: "Do you offer contactless delivery?",
+    answer:
+      "Yes, we offer contactless delivery options to ensure the safety of our customers and delivery partners. You can request contactless delivery during checkout, and our delivery partners will leave your order at your doorstep without direct contact.",
+  },
+];
 
-    // Cleanup event listeners on unmount
-    return () => {
-      faqItems.forEach((item) =>
-        item.removeEventListener("click", () => {})
-      );
-    };
-  }, []);
+export default function Faq() {
+  const [activeIndex, setActiveIndex] = useState(null);
 
-  const faqData = [
-    {
-      question: "What is Bizgurukul?",
-      answer:
-        "Bizgurukul is an online platform providing courses and skill-based training programs.",
-    },
-    {
-      question: "What opportunity does Bizgurukul provide?",
-      answer:
-        "It provides opportunities for learning trending skills and connecting with mentors.",
-    },
-    {
-      question: "What are Education Bundles?",
-      answer:
-        "Education Bundles are curated collections of courses to help you master a specific field.",
-    },
-    {
-      question: "What kind of skill-based courses do you provide?",
-      answer:
-        "Courses range from digital marketing, public speaking, to graphic design and more.",
-    },
-    {
-      question: "Is Bizgurukul government verified?",
-      answer: "Yes, Bizgurukul is a government-verified platform.",
-    },
-    {
-      question: "How can I reach out to you?",
-      answer:
-        "You can contact us through our official website or support email.",
-    },
-  ];
+  const handleToggle = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
+  const [todos, setTodos] = useState([]);
+  const [todoInput, setTodoInput] = useState("");
+
+  const handleInputChange = (e) => {
+    setTodoInput(e.target.value);
+  };
+
+  const handleAddTodo = () => {
+    if (todoInput.trim() !== "") {
+      const newTodo = {
+        id: todos.length + 1,
+        text: todoInput,
+        date: new Date().toLocaleDateString(),
+      };
+      setTodos([...todos, newTodo]);
+      setTodoInput(""); // Clear the input field after adding
+    }
+  };
 
   return (
-    <div className="faq-container">
-      <h1 className="faq-title">
-        Frequently Asked <span className="faq-highlight">Questions</span>
-      </h1>
-      <p className="faq-subtitle">Answers to the burning questions in your mind.</p>
-      <div className="faq-list">
-        {faqData.map((item, index) => (
-          <div key={index} className="faq-item">
-            <div className="faq-question">
+    <>
+      <div className="accordion">
+        {data.map((item, index) => (
+          <div key={index} className="accordion-item">
+            <button
+              className="accordion-header"
+              onClick={() => handleToggle(index)}
+            >
               {item.question}
-              <span className="faq-arrow">▶</span>
+              <span className="arrow">
+                {activeIndex === index ? (
+                  <span className="material-symbols-outlined">🔽</span>
+                ) : (
+                  <span class="material-symbols-outlined">🔼</span>
+                )}
+              </span>
+            </button>
+            <div
+              className={`accordion-body ${
+                activeIndex === index ? "active" : ""
+              }`}
+            >
+              <p>{item.answer}</p>
             </div>
-            <div className="faq-answer">{item.answer}</div>
           </div>
         ))}
       </div>
-      <style jsx>{`
-        .faq-container {
-          font-family: Arial, sans-serif;
-          text-align: center;
-          padding: 50px 20px;
-          max-width: 800px;
-          margin: 0 auto;
-        }
-
-        .faq-title {
-          font-size: 2.5em;
-          color: #2c2c54;
-        }
-
-        .faq-highlight {
-          color: #6c5ce7;
-          background-color: #e0e0ff;
-          padding: 2px 6px;
-          border-radius: 4px;
-        }
-
-        .faq-subtitle {
-          font-size: 1.2em;
-          color: #636e72;
-          margin-bottom: 40px;
-        }
-
-        .faq-list {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-        }
-
-        .faq-item {
-          background: #ffffff;
-          border: 1px solid #dcdde1;
-          border-radius: 8px;
-          padding: 15px 20px;
-          cursor: pointer;
-          transition: box-shadow 0.2s, background-color 0.2s;
-        }
-
-        .faq-item:hover {
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .faq-item.active {
-          background-color: #f1f0ff;
-          border-color: #6c5ce7;
-        }
-
-        .faq-question {
-          font-size: 1.2em;
-          font-weight: bold;
-          color: #2c2c54;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-
-        .faq-answer {
-          margin-top: 10px;
-          font-size: 1em;
-          color: #636e72;
-          text-align: left;
-          display: none;
-        }
-
-        .faq-item.active .faq-answer {
-          display: block;
-        }
-
-        .faq-arrow {
-          font-size: 1.5em;
-          color: #6c5ce7;
-          transition: transform 0.2s;
-        }
-
-        .faq-item.active .faq-arrow {
-          transform: rotate(90deg);
-        }
-      `}</style>
-    </div>
+    </>
   );
-};
-
-export default FAQ;
+}

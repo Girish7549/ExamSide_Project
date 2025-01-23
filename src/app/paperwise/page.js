@@ -1,9 +1,8 @@
 'use client'
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import TopNavBar from "../Components/TopNavBar";
-import BottomNavBar from "../Components/BottomNavBar";
 import { useRouter } from 'next/navigation';
+import Navbar from "../Components/Navbar/Navbar";
 const page = () => {
    
   const router = useRouter();  // Initialize the useRouter hook
@@ -14,8 +13,7 @@ const page = () => {
 
   return (
     <>
-      <TopNavBar />
-      <BottomNavBar />
+      <Navbar />
       <div className="bg-body-tertiary">
         <div className="container">
           <div className="row justify-content-center">

@@ -1,90 +1,111 @@
- 
-        .bizgurukul-container {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            width: 80%;
-            margin: 0 auto;
-            text-align: center;
-            padding: 50px 0;
-        }
+.bizgurukul-container {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  padding: 50px 20px;
+  text-align: center;
+  position: relative;
+}
 
-        .bizgurukul-title {
-            font-size: 2.5em;
-            color: #2c2c54;
-        }
+.bizgurukul-title {
+  font-size: 3rem;
+  color: #2c2c54;
+  margin-bottom: 50px;
+}
 
-        .bizgurukul-highlight {
-            color: #6c5ce7;
-            background-color: #e0e0ff;
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
+.bizgurukul-highlight {
+  color: #fff;
+  background-color: #6c5ce7;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
 
-        .bizgurukul-steps {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 50px;
-            margin-top: 40px;
-        }
+.bizgurukul-steps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  position: relative;
+}
 
-        .bizgurukul-step {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            width: 60%;
-        }
+.bizgurukul-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+  max-width: 300px;
+}
 
-        .bizgurukul-step img {
-            width: 50px;
-            height: 50px;
-        }
+.bizgurukul-step img {
+  width: 100px;
+  height: 100px;
+}
 
-        .bizgurukul-step-content {
-            text-align: left;
-        }
+.bizgurukul-step-content {
+  margin-top: 10px;
+}
 
-        .bizgurukul-step-title {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #2c2c54;
-        }
+.bizgurukul-step-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2c2c54;
+}
 
-        .bizgurukul-step-description {
-            font-size: 1em;
-            color: #636e72;
-        }
+.bizgurukul-step-description {
+  font-size: 1rem;
+  color: #636e72;
+}
 
-        .bizgurukul-line {
-            position: absolute;
-            width: 4px;
-            background-color: #6c5ce7;
-            height: 100%;
-            z-index: -1;
-            left: calc(50% - 2px);
-        }
+.bizgurukul-arrow {
+  position: absolute;
+  width: 100px;
+  height: auto;
+}
 
-        @media (min-width: 768px) {
-            .bizgurukul-steps {
-                flex-direction: row;
-                justify-content: space-around;
-                align-items: flex-start;
-                position: relative;
-            }
+.arrow-1 {
+  top: 150px; /* Adjust the top position */
+  left: 200px; /* Adjust the left position for curvature */
+  transform: rotate(-20deg);
+}
 
-            .bizgurukul-step {
-                width: 30%;
-                flex-direction: column;
-                text-align: center;
-            }
+.arrow-2 {
+  top: 300px;
+  right: 200px; /* Adjust the right position for curvature */
+  transform: rotate(20deg);
+}
 
-            .bizgurukul-line {
-                height: 4px;
-                width: 100%;
-                top: 50%;
-                left: 0;
-                transform: translateY(-50%);
-            }
-        }
+/* Step-specific positioning */
+.explore-step {
+  align-self: flex-start;
+}
+
+.learn-step {
+  align-self: center;
+}
+
+.inspire-step {
+  align-self: flex-end;
+}
+
+@media (min-width: 768px) {
+  .bizgurukul-steps {
+    flex-direction: row;
+    gap: 150px;
+  }
+
+  .bizgurukul-arrow {
+    width: 150px;
+  }
+
+  .arrow-1 {
+    top: 100px;
+    left: 0;
+    transform: rotate(0deg);
+  }
+
+  .arrow-2 {
+    top: 100px;
+    right: 0;
+    transform: rotate(0deg);
+  }
+}

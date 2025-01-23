@@ -1,9 +1,8 @@
 "use client";
-import BottomNavBar from "@/app/Components/BottomNavBar";
-import TopNavBar from "@/app/Components/TopNavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { MdGTranslate } from "react-icons/md";
 import { useState } from "react";
+import Navbar from "@/app/Components/Navbar/Navbar";
 
 const question = () => {
   const [activeSubject, setActiveSubject] = useState("Chemistry");
@@ -14,8 +13,7 @@ const question = () => {
 
   return (
     <>
-      <TopNavBar />
-      <BottomNavBar />
+      <Navbar/>
       <div className="bg-body-tertiary">
         <div className="p-4">
           <div className="d-flex col gap-3">

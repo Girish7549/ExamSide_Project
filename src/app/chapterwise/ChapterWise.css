@@ -25,7 +25,7 @@
 }
 .card-body a:hover{
     background-color: #ffc224;
-    transition: 1s;
+    transition: 0.9s;
 }
 .Electricity{
     display: grid; 

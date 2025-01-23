@@ -1,129 +1,251 @@
+/* Container Styling */
 .container {
-    display: flex;
-    align-items: center;  /* Vertically align items */
-    justify-content: space-between; /* Distribute space between text and image */
-    gap: 20px; /* Optional: add space between text and image */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  gap: 2rem;
+  background-color: #f5f5fc;
+  flex-wrap: wrap; /* Allow elements to wrap for smaller screens */
+}
+
+/* Text Section Styling */
+.text-section {
+  flex: 1;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 45%;
+}
+
+.text-section h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #292b36;
+}
+
+.text-section h1 .Learning {
+  background-color: #ffc224;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.3rem;
+  color: #000;
+}
+
+.text-section p {
+  font-size: 1.2rem;
+  color: #6b6d78;
+  margin: 1rem 0;
+}
+
+.text-section button {
+  font-size: 1.2rem;
+  padding: 0.8rem 1.5rem;
+  color: #fff;
+  /* background-color: #371dc9; */
+  border: none;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.text-section button:hover {
+  transition: 1s;
+  background-color: #ffc224;
+  color: #000;
+}
+
+/* Image Section Styling */
+.img-section {
+  position: relative;
+  width: 50%;
+  height: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.img-wrapper {
+  position: absolute;
+}
+
+.image1, .image2, .image3, .image4 {
+  width: 400px;
+  height: auto;
+  max-width: 100%; /* Make sure images adjust to container */
+}
+
+.image1 {
+  top: 10%;
+  left: 0;
+  margin-left: 180px;
+  animation: rotate360 35s infinite linear;
+  z-index: 1;
+}
+
+.image2 {
+  top: 20%;
+  left: 30%;
+  height: auto;
+  z-index: 2;
+}
+
+.image3 {
+  top: 50%;
+  left: 50%;
+  margin-top: 230px;
+  margin-right: 210px;
+  width: 200px;
+  z-index: 3;
+}
+
+.image4 {
+  width: 400px;
+  top: 20%;
+  left: 60%;
+  z-index: 4;
+}
+
+/* Rotating Animation */
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
   }
-  
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .container {
+    padding: 1.5rem; /* Add padding for smaller screens */
+    flex-direction: column; /* Stack the elements vertically */
+    text-align: center;
+  }
+
   .text-section {
-    flex: 1;  
-    margin-right:12rem;
-    font-size: 1.9rem;
-    /* Takes up available space */
-  }
-  .text-section h1{
-    font-size: 3.1rem;
-  }
-  .text-section h1 span{
-    font-size: 2.4rem;
-    font-weight: 800;
-
-  }
-  .text-section p{
-    font-size: 1.4rem;
-  }
-  .Learning{
-    background-color: #FFC224;
-    border-radius: .5rem;
-    margin-top: 1rem;
-  }
-  
-  .img-section img {
-    max-width: 100%;  /* Make sure the image is responsive */
-    height: auto;  /* Maintain the aspect ratio */
-    border-radius: 8px; /* Optional: add rounded corners */
-  }
-  .container{
-    margin-top: 2rem;
-  }
-  .img-section img{
-    background-image: url('https://skillgro.netlify.app/_next/static/media/bg_dots.43404794.svg');
-    position: relative;
-    width: 400px;
-    height: 400px;
-    overflow: hidden;
+    max-width: 100%; /* Make text section take full width */
+    margin-bottom: 2rem; /* Add space below the text */
   }
 
-  .text-section button{
-    height: 3rem;
-    width: 12rem;
-    background-color: #371dc9;
-    border-radius: 1.3rem;
-    font-size: 1.3rem;
-    color: white;
-    border: none;
+  .img-section {
+    width: 80%;
+    justify-content: center;
+    margin: 0 auto;
   }
-  .text-section button:hover{
-    background-color: #FFC224;
-    transition: 1s;
-    color: white;
-    border: none;
+
+  .img-wrapper {
+    width: 80%;
+    margin: 0 auto;
+    position: relative; /* Allow images to be placed correctly */
   }
-   
-  
-  /* Optional: If you want to add media queries for smaller screens */
-  @media (max-width: 768px) {
-    .container {
-      flex-direction: column; /* Stack the elements vertically on small screens */
-      text-align: center; /* Center the text */
-    }
-  
-    .img-section img {
-      max-width: 80%;  /* Optional: Adjust image size on smaller screens */
-    }
+
+  .image1 {
+    width: 250px; /* Smaller images */
+    margin-left: 0; /* Reset the margin for smaller screen */
+    animation: rotate360 30s infinite linear; /* Speed up animation slightly */
   }
-  
- 
+
+  .image2 {
+    width: 300px;
+  }
+
+  .image3 {
+    width: 150px;
+  }
+
+  .image4 {
+    width: 300px;
+    top: 30%;
+    left: 50%;
+    margin-left: -150px; /* Center Image4 */
+  }
+}
+
 @media (max-width: 768px) {
   .container {
-    flex-direction: column;
-    align-items: center;
-     
+    padding: 1rem; /* Add padding for smaller screens */
+    flex-direction: column; /* Stack the elements vertically */
+    text-align: center;
   }
 
   .text-section {
-    text-align: center;
-    max-width: 100%;
-    margin-bottom: 20px;
+    max-width: 100%; /* Make text section take full width */
+    margin-bottom: 2rem; /* Add space below the text */
   }
 
-  .text-section h1 {
-    font-size: 1.5rem;
+  .img-section {
+    width: 90%;
+    justify-content: center;
+    margin: 0 auto;
   }
 
-  .text-section p {
-    font-size: 0.9rem;
+  .img-wrapper {
+    width: 90%;
+    margin: 0 auto;
   }
 
-  button {
-    font-size: 1.2rem;
-    padding: 12px 24px;
+  .image1 {
+    width: 200px; /* Resize Image1 */
   }
 
-  .img-section img {
-    max-width: 90%;
+  .image2 {
+    width: 250px; /* Resize Image2 */
+  }
+
+  .image3 {
+    width: 120px;
+    margin-top: 120px;
+  }
+
+  .image4 {
+    width: 250px;
+    top: 25%;
+    left: 50%;
+    margin-left: -125px; /* Center Image4 */
   }
 }
 
 @media (max-width: 480px) {
   .text-section h1 {
-    font-size: 2.3rem;
-  }
-  .text-section{
-    margin-left: 12rem;
-    gap: 2rem;
+    font-size: 2rem;
   }
 
   .text-section p {
-    font-size: 0.8rem;
-  }
-
-  button {
     font-size: 1rem;
-    padding: 10px 20px;
   }
 
-  .img-section img {
-    max-width: 100%;
+  .text-section button {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .img-section {
+    width: 100%;
+    margin-top: 2rem;
+    justify-content: center;
+  }
+
+  .img-wrapper {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .image1 {
+    width: 150px;
+    margin-right: 70px; /* Resize Image1 */
+  }
+
+  .image2 {
+    width: 200px; /* Resize Image2 */
+  }
+
+  .image3 {
+    width: 100px; /* Resize Image3 */
+  }
+
+  .image4 {
+    width: 200px; /* Resize Image4 */
+    top: 20%;
+    left: 50%;
+    margin-left: -100px; /* Center Image4 */
   }
 }

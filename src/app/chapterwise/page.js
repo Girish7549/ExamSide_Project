@@ -1,6 +1,8 @@
+"use client"
 import React from "react";
 import "./ChapterWise.css";
 import Navbar from "../Components/Navbar/Navbar";
+import Link from 'next/link'
 
 export default function ChapterWise() {
   return (
@@ -17,9 +19,9 @@ export default function ChapterWise() {
                 <p className="card-text text-nowrap">
                   <strong>2024:</strong> Total:33 Avg:1.65 Weightage:5.5%<span className="text-success">+40.96%</span>
                 </p>
-                <a href="#" className="btn btn-primary d-flex justify-content-center align-content-center">
+                <Link href="/paperwise/yearwise" className="btn btn-primary d-flex justify-content-center align-content-center">
                   View Questions
-                </a>
+                </Link>
               </div>
             </div>
           </div>

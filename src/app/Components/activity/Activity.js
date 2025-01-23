@@ -4,7 +4,7 @@ import './Activity.css';
 export default function Activity() {
   return (
     <>
-      <div className="stats-section">
+      <div className="stats-section button-color">
         <div className="stat-item">
           <h2>45K+</h2>
           <p>Active Students</p>
@@ -23,7 +23,7 @@ export default function Activity() {
         </div>
       </div>
 
-      <section className="journey-section">
+      <section className="journey-section button-color">
         <h2 className="journey-header">Start Your Learning Journey Today!</h2>
         <p className="journey-description">
           Groove's intuitive shared inbox makes team members together organize, prioritize, and collaborate effectively.

@@ -3,7 +3,7 @@
  export default function Newsletter() {
    return (
       <>
-      <div class="subscription-container">
+      <div class="subscription-container button-color">
     <div class="subscription-content">
       <h2>
         Want To Stay <span>Informed</span> About New <span>Courses & Study</span>?
