@@ -2,7 +2,7 @@
 import React from "react";
 import "./BodyMarquee.css";
 
-const BodyMarquee = () => {
+const   BodyMarquee = () => {
   const logos = [
     "https://www.bizgurukul.com/Biz/img/biz_image/Zomato_Logo.svg",
     "https://www.bizgurukul.com/Biz/img/biz_image/vivo-1.svg",

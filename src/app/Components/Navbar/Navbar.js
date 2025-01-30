@@ -1,126 +1,126 @@
-import React from "react";
-import "./Navbar.css";
+import React, { useEffect } from "react";
+import './Navbar.css';
 import { IoIosArrowDown } from "react-icons/io";
-import { CiSearch } from "react-icons/ci";
 import Link from "next/link";
+import 'aos/dist/aos.css'; // Import AOS styles
+import AOS from 'aos';
 
 export default function Navbar() {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,  // Animation duration
+      easing: 'ease',  // Animation easing
+      once: true,      // Whether animation should happen once or every time it comes into view
+    });
+  }, []);
+
+
   return (
     <>
       <header id="navb" className="nav">
-        <Link href={"/"}>
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPa7xUg01XNO3nPMzTKzq6Y7UUzo6wP2ZfIRDVZdaLxjxKTy29wDFTcADnIgHw-Wo1Obw&usqp=CAU"
-            alt="Logo"
-            className="logo"
-          />
-        </Link>
+        <div data-aos="zoom-in-right">
+          <Link href={"/"}>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPa7xUg01XNO3nPMzTKzq6Y7UUzo6wP2ZfIRDVZdaLxjxKTy29wDFTcADnIgHw-Wo1Obw&usqp=CAU"
+              alt="Logo"
+              className="logo"
+            />
+          </Link>
+        </div>
         <div className="navbar">
           <ul>
             <li className="dropdown">
-              {" "}
-              <span className="hoo">
-                Join Entrance <IoIosArrowDown />
-              </span>
-              <div class="dropdown-content">
-                <div class="dropdown-column">
-                  <h4>JEE MAin</h4>
-                  <a href="#">Physics</a>
-                  <a href="#">Chemistry</a>
-                  <a href="#">Jackets</a>
+              <span className="hoo fw-bold">Join Entrance <IoIosArrowDown /></span>
+              <div className="dropdown-content ">
+                <div className="d-flex justify-content-center align-items-center gap-4">
+                  <div className="dropdown-column">
+                    <h6 className="text-nowrap fw-bold">JEE Main</h6>
+                    <a href="#">Physics</a>
+                    <a href="#">Chemistry</a>
+                    <a href="#">Jackets</a>
+                  </div>
+                  <div className="dropdown-column">
+                    <h6 className="text-nowrap  fw-bold">JEE Advanced</h6>
+                    <a href="#">Physics</a>
+                    <a href="#">Chemistry</a>
+                    <a href="#">Jackets</a>
+                  </div>
+                  <div className="dropdown-column">
+                    <h6 className="text-nowrap fw-bold">WB JEE</h6>
+                    <a href="#">Physics</a>
+                    <a href="#">Chemistry</a>
+                    <a href="#">Jackets</a>
+                  </div>
                 </div>
-                <div class="dropdown-column">
-                  <h4>JEE advanced</h4>
-                  <a href="#">Physics</a>
-                  <a href="#">Chemistry</a>
-                  <a href="#">Jackets</a>
-                </div>
-                <div class="dropdown-column">
-                  <h4>WB JEE</h4>
-                  <a href="#">Physics</a>
-                  <a href="#">Chemistry</a>
-                  <a href="#">Jackets</a>
-                </div>
+
               </div>
             </li>
             <li className="dropdown">
-              <span className="hoo">
-                {" "}
-                Medical
-                <IoIosArrowDown />
-              </span>
-              <div class="dropdown-content">
-                <div class="dropdown-column">
-                  <h4>NERT</h4>
-                  <a href="#">Physics</a>
-                  <a href="#">Chemistry</a>
-                  <a href="#">Jackets</a>
+              <span className="hoo fw-bold">Medical <IoIosArrowDown /></span>
+              <div className="dropdown-content">
+                <div className="d-flex justify-content-center align-items-center gap-4">
+                  <div className="dropdown-column">
+                    <h6 className="text-nowrap fw-bold">NCERT</h6>
+                    <a href="#">Physics</a>
+                    <a href="#">Chemistry</a>
+                    <a href="#">Jackets</a>
+                  </div>
+                  <div className="dropdown-column">
+                    <h6 className="text-nowrap fw-bold">AIIMS</h6>
+                    <a href="#">Physics</a>
+                    <a href="#">Chemistry</a>
+                    <a href="#">Jackets</a>
+                  </div>
                 </div>
-                <div class="dropdown-column">
-                  <h4>AIIMS</h4>
-                  <a href="#">Physics</a>
-                  <a href="#">Chemistry</a>
-                  <a href="#">Jackets</a>
-                </div>
+
               </div>
             </li>
             <li className="dropdown">
-              <span className="hoo">
-                Civil Services
-                <IoIosArrowDown />
-              </span>
-              <div class="dropdown-content">
-                <div class="dropdown-column">
-                  <h4>UPSC Civil Service</h4>
-                  <a href="#">History of india</a>
+              <span className="hoo fw-bold">Civil Services <IoIosArrowDown /></span>
+              <div className="dropdown-content">
+                <div className="dropdown-column">
+                  <h6 className="text-nowrap fw-bold">UPSC Civil Service</h6>
+                  <a href="#">History of India</a>
                   <a href="#">Science and Technology</a>
                   <a href="#">Geography</a>
                   <a href="#">Indian Polity</a>
                   <a href="#">Economy</a>
                   <a href="#">Current Affairs</a>
                   <a href="#">Comprehension</a>
-                  <a href="#"> BAsic Numeracy</a>
+                  <a href="#">Basic Numeracy</a>
                 </div>
               </div>
             </li>
             <li className="dropdown">
-              <span className="hoo">
-                Defence
-                <IoIosArrowDown />
-              </span>
-              <div class="dropdown-content">
-                <div class="dropdown-column">
-                  <h4>NDa</h4>
+              <span className="hoo fw-bold">Defence <IoIosArrowDown /></span>
+              <div className="dropdown-content">
+                <div className="dropdown-column">
+                  <h6 className="text-nowrap fw-bold">NDA</h6>
                   <a href="#">Mathematics</a>
-                  <a href="#"> English</a>
-                  <a href="#"> General Science</a>
-                  <a href="#"> General Studies</a>
+                  <a href="#">English</a>
+                  <a href="#">General Science</a>
+                  <a href="#">General Studies</a>
                 </div>
               </div>
             </li>
             <li className="dropdown">
-              <span className="hoo">
-                SSC
-                <IoIosArrowDown />
-              </span>
-              <div class="dropdown-content">
-                <div class="dropdown-column">
-                  <h4>SSC CGL Tier I</h4>
+              <span className="hoo fw-bold">SSC <IoIosArrowDown /></span>
+              <div className="dropdown-content">
+                <div className="dropdown-column">
+                  <h6 className="text-nowrap fw-bold">SSC CGL Tier I</h6>
                   <a href="#">Quantitative Aptitude</a>
-                  <a href="#">General Awarenes</a>
+                  <a href="#">General Awareness</a>
                   <a href="#">English Comprehension</a>
                   <a href="#">General Intelligence</a>
                 </div>
               </div>
             </li>
             <li className="dropdown">
-              <span className="hoo">
-                CBSE
-                <IoIosArrowDown />
-              </span>
-              <div class="dropdown-content">
-                <div class="dropdown-column">
-                  <h4>Class-12</h4>
+              <span className="hoo fw-bold">CBSE <IoIosArrowDown /></span>
+              <div className="dropdown-content">
+                <div className="dropdown-column">
+                  <h6 className="text-nowrap fw-bold">className-12</h6>
                   <a href="#">Physics</a>
                   <a href="#">Chemistry</a>
                   <a href="#">Mathematics</a>
@@ -129,9 +129,8 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
-        <div className="right-nav">
+        <div className="right-nav" data-aos="zoom-in-left">
           <input type="text" placeholder="Search" />
-          <button className="button-color">Log in</button>
         </div>
       </header>
     </>

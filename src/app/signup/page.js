@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import {
   Container,
@@ -12,28 +13,19 @@ import {
   CardBody,
   CardTitle,
   CardText,
-  Modal,
-  ModalHeader,
-  ModalBody,
 } from "reactstrap";
 import { IoMdEyeOff, IoMdEye } from "react-icons/io";
 import "bootstrap/dist/css/bootstrap.min.css";
-import LoginModal from "./LoginModal";
+import Navbar from "../Components/Navbar/Navbar";
+import Link from "next/link";
 
-function SignupModal({ showModal, toggle }) {
-  const [loginModal, setLoginModal] = useState(false);
-
-  const loginOnclick = () => {
-    setLoginModal(true);
-  };
-
-  const toggleLoginModal = () => setLoginModal(!loginModal);
-
+function SignupPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [email, setEmail] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [confshow, setConfShow] = useState(false);
+
   // Toggle password visibility
   const handleClickShowPassword = () => {
     setShowPassword((prevState) => !prevState);
@@ -48,22 +40,20 @@ function SignupModal({ showModal, toggle }) {
     e.preventDefault();
     // Handle signup logic here
   };
+
   return (
-    <Modal isOpen={showModal} toggle={toggle} size="lg">
-      <ModalHeader toggle={toggle} className="text-center">
-        <h4>Create Your Account</h4>
-      </ModalHeader>
-      <ModalBody className="bg-light rounded-4">
-        <Row className="justify-content-center">
-          <Col md={12}>
-            <Card className="">
-              <CardBody>
-                <CardTitle tag="h4" className="text-center mb-3">
-                  Signup
+    <>
+      <Navbar />
+      <div className="p-2 bd-color-1">
+        <Row className="justify-content-center ">
+          <Col md={6}>
+            <Card className="shadow-lg rounded-4">
+              <CardBody className="bg-color-2 rounded-3">
+                <CardTitle tag="h4" className="text-center mb-2">
+                  Create Your Account
                 </CardTitle>
-                <CardText className="text-center mb-4">
-                  Hey there! Ready to join the party? We just need a few details
-                  from you to get started. Let's do this!
+                <CardText className="text-center mb-3 text-muted">
+                  Join the community! We just need a few details to get started.
                 </CardText>
 
                 <Form onSubmit={handleSubmit}>
@@ -78,7 +68,7 @@ function SignupModal({ showModal, toggle }) {
                           type="text"
                           name="firstName"
                           id="firstName"
-                          className="rounded-4"
+                          className="rounded-2"
                           placeholder="Enter your first name"
                           required
                         />
@@ -93,7 +83,7 @@ function SignupModal({ showModal, toggle }) {
                           type="text"
                           name="lastName"
                           id="lastName"
-                          className="rounded-4"
+                          className="rounded-2"
                           placeholder="Enter your last name"
                           required
                         />
@@ -110,8 +100,21 @@ function SignupModal({ showModal, toggle }) {
                       type="email"
                       name="email"
                       id="email"
-                      className="rounded-4"
+                      className="rounded-2"
                       placeholder="Enter your email"
+                      required
+                    />
+                  </FormGroup>
+
+                  <FormGroup>
+                    <Label for="phone">
+                      Phone<span className="text-danger">*</span>
+                    </Label>
+                    <Input
+                      type="number"
+                      name="phone"
+                      className="rounded-2"
+                      placeholder="Enter your phone"
                       required
                     />
                   </FormGroup>
@@ -129,7 +132,7 @@ function SignupModal({ showModal, toggle }) {
                         placeholder="Enter your password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className="rounded-4"
+                        className="rounded-2"
                         required
                       />
                       <div className="input-group-append">
@@ -137,7 +140,7 @@ function SignupModal({ showModal, toggle }) {
                           type="button"
                           onClick={handleClickShowPassword}
                           color="link"
-                          className="input-group-text rounded-4"
+                          className="input-group-text rounded-2"
                         >
                           {showPassword ? <IoMdEye /> : <IoMdEyeOff />}
                         </Button>
@@ -159,7 +162,7 @@ function SignupModal({ showModal, toggle }) {
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         required
-                        className="rounded-4"
+                        className="rounded-2"
                       />
                       <div className="input-group-append">
                         <Button
@@ -179,7 +182,7 @@ function SignupModal({ showModal, toggle }) {
                     type="submit"
                     color="primary"
                     block
-                    className="rounded-4 mt-3"
+                    className="mt-4 py-2"
                   >
                     Sign Up
                   </Button>
@@ -189,9 +192,11 @@ function SignupModal({ showModal, toggle }) {
                 <div className="text-center mt-3">
                   <p>
                     Already have an account?{" "}
-                    <Button color="link" onClick={loginOnclick}>
-                      Login
-                    </Button>
+                    <Link href={"/login"}>
+                      <Button color="link" className="text-primary">
+                        Login
+                      </Button>
+                    </Link>
                   </p>
                 </div>
 
@@ -199,7 +204,7 @@ function SignupModal({ showModal, toggle }) {
                 <Button
                   block
                   color="secondary"
-                  className="mt-2 rounded-4"
+                  className="google-btn mt-3 py-2"
                   onClick={() => alert("Google login")}
                 >
                   <img
@@ -215,10 +220,9 @@ function SignupModal({ showModal, toggle }) {
             </Card>
           </Col>
         </Row>
-      </ModalBody>
-      <LoginModal showModal={loginModal} toggle={toggleLoginModal} />
-    </Modal>
+      </div>
+    </>
   );
 }
 
-export default SignupModal;
+export default SignupPage;

@@ -1,20 +1,21 @@
-import React, { useState} from "react";
+"use client";
+import React, { useState } from "react";
 import {
-  Modal,
-  ModalHeader,
-  ModalBody,
   Button,
   Form,
   FormGroup,
   Label,
   Input,
-  Container,
   Col,
+  Row,
+  Card,
+  CardBody,
 } from "reactstrap";
 import OtpInput from "react-otp-input"; // Import react-otp-input
 import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "../Components/Navbar/Navbar";
 
-function ForgotModal({ showModal, toggle }) {
+function ForgotPasswordPage() {
   const [email, setEmail] = useState(""); // State for email
   const [otp, setOtp] = useState(""); // State for OTP
   const [showOtpInput, setShowOtpInput] = useState(false); // State to toggle OTP input visibility
@@ -29,7 +30,6 @@ function ForgotModal({ showModal, toggle }) {
     setIsEmailForm(false); // Toggle form state to OTP form
     startTimer(); // Start the countdown timer
   };
-
 
   // Start countdown timer
   const startTimer = () => {
@@ -62,7 +62,6 @@ function ForgotModal({ showModal, toggle }) {
     )}`;
   };
 
-
   // Handle going back to the email form
   const handleGoBackToEmail = () => {
     setShowOtpInput(false); // Hide OTP input
@@ -83,24 +82,26 @@ function ForgotModal({ showModal, toggle }) {
   };
 
   return (
-    <div>
-      <Modal isOpen={showModal} toggle={toggle} size="md" centered>
-        <ModalHeader toggle={toggle} className="text-center border-0">
-          <h4>Forgot Password</h4>
-        </ModalHeader>
-        <ModalBody className="bg-light rounded-4 p-4">
-          <Container>
-            {/* <Row className="justify-content-center"> */}
-            <Col className="d-flex justify-content-center align-items-center">
-              <div className="w-100">
+    <>
+      <Navbar />
+      <div className="py-3">
+        <Row className="justify-content-center ">
+          <Col md={6}>
+            {/* Card Container for Email Form */}
+            <Card className="shadow-lg rounded-4 w-75">
+              <CardBody>
                 <div className="text-center mb-4">
-                  <h5>{showOtpInput ? "Enter OTP" : "Forgot Password?"}</h5>
-                  <p>
+                  <h3 className="form-title">
+                    {showOtpInput ? "Enter OTP" : "Forgot Password?"}
+                  </h3>
+                  <p className="form-description">
                     {showOtpInput
-                      ? "We’ve sent you an OTP to your email."
+                      ? `We’ve sent an OTP to your : ${email}`
                       : "Enter your email to receive the OTP."}
                   </p>
-                  {isTimerExpired && <p>Your OTP has expired!</p>}
+                  {isTimerExpired && (
+                    <p className="text-danger">Your OTP has expired!</p>
+                  )}
                 </div>
 
                 {/* Email Form - When OTP is not yet shown */}
@@ -125,7 +126,7 @@ function ForgotModal({ showModal, toggle }) {
                       color="primary"
                       type="submit"
                       block
-                      className="rounded-4 mt-3"
+                      className="mt-3 rounded-4"
                     >
                       Send OTP
                     </Button>
@@ -134,7 +135,7 @@ function ForgotModal({ showModal, toggle }) {
 
                 {/* OTP Form - When OTP input is shown */}
                 {showOtpInput && !isTimerExpired && (
-                  <Form onSubmit={handleSubmitOtp}>
+                  <Form className="" onSubmit={handleSubmitOtp}>
                     <FormGroup>
                       <Label for="otp">
                         Enter OTP <span className="text-danger">*</span>
@@ -160,37 +161,24 @@ function ForgotModal({ showModal, toggle }) {
                       color="primary"
                       type="submit"
                       block
-                      className="rounded-4 mt-3"
+                      className="mt-3 rounded-4"
                     >
                       Verify OTP
                     </Button>
-                    <div className="d-flex justify-content-evenly align-items-center">
-                      <div>
-                        <Button
-                          color="secondary"
-                          onClick={handleGoBackToEmail}
-                          className="rounded-4 mt-3"
-                        >
-                          <span>&larr; Go Back</span>
-                        </Button>
-                      </div>
-                      <div>
-                        <p className="mt-3">Time Left: {formatTime(timer)}</p>
-                      </div>
+                    <div className="d-flex justify-content-between align-items-center mt-3">
+                      <Button
+                        color="secondary"
+                        onClick={handleGoBackToEmail}
+                        className="rounded-4"
+                      >
+                        <span>&larr; Go Back</span>
+                      </Button>
+                      <p className="text-muted">
+                        Time Left: {formatTime(timer)}
+                      </p>
                     </div>
                   </Form>
                 )}
-
-                {/* Go Back Button - To go back to email form */}
-                {/* {!isEmailForm && !isTimerExpired && ( */}
-                {/* <Button
-                  color="secondary"
-                  onClick={handleGoBackToEmail}
-                  className="rounded-4 mt-3"
-                >
-                  <span>&larr; Go Back</span>
-                </Button> */}
-                {/* )} */}
 
                 {/* Resend OTP Button */}
                 {isTimerExpired && (
@@ -203,14 +191,13 @@ function ForgotModal({ showModal, toggle }) {
                     Resend OTP
                   </Button>
                 )}
-              </div>
-            </Col>
-            {/* </Row> */}
-          </Container>
-        </ModalBody>
-      </Modal>
-    </div>
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
+      </div>
+    </>
   );
 }
 
-export default ForgotModal;
+export default ForgotPasswordPage;

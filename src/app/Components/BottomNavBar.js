@@ -34,7 +34,7 @@ const BottomNavBar = () => {
     },
     {
       name: "CBSE",
-      subcategories: ["10th Class", "12th Class", "Other Exams"],
+      subcategories: ["10th className", "12th className", "Other Exams"],
     },
   ];
 

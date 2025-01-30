@@ -1,23 +1,34 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import './Footers.css'
+import 'aos/dist/aos.css'; // Import AOS styles
+import AOS from 'aos';
+
 export default function Footers() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,  // Animation duration
+      easing: 'ease',  // Animation easing
+      once: true,      // Whether animation should happen once or every time it comes into view
+    });
+  }, []);
+
   return (
    <>
-    <footer class="footer">
-    <div class="footer-container">
+    <footer className="footer" data-aos="zoom-in">
+    <div className="footer-container">
        
-      <div class="footer-section about">
-        <h2 class="footer-logo">Education</h2>
-        <p class="tagline">Grow Your Skills</p>
-        <p class="description">When an unknown printer took galley of type and scrambled it to make specimen bookt has.</p>
-        <p class="address">
+      <div className="footer-section about">
+        <h2 className="footer-logo">Education</h2>
+        <p className="tagline">Grow Your Skills</p>
+        <p className="description">When an unknown printer took galley of type and scrambled it to make specimen bookt has.</p>
+        <p className="address">
           463 7th Ave, NY 10018, USA<br/>
           +123 88 9900 456
         </p>
       </div>
 
       
-      <div class="footer-section useful-links">
+      <div className="footer-section useful-links">
         <h3>Useful Links</h3>
         <ul>
           <li><a href="#">Our values</a></li>
@@ -30,7 +41,7 @@ export default function Footers() {
       </div>
 
       
-      <div class="footer-section company">
+      <div className="footer-section company">
         <h3>Our Company</h3>
         <ul>
           <li><a href="#">Contact Us</a></li>
@@ -42,24 +53,24 @@ export default function Footers() {
       </div>
 
        
-      <div class="footer-section get-in-touch">
+      <div className="footer-section get-in-touch">
         <h3>Get In Touch</h3>
-        <p class="contact-text">When an unknown printer took galley type and scrambled</p>
-        <div class="social-icons">
+        <p className="contact-text">When an unknown printer took galley type and scrambled</p>
+        <div className="social-icons">
           <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/facebook-new.png" alt="Facebook"/></a>
           <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/twitter.png" alt="Twitter"/></a>
           <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram"/></a>
           <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/youtube-play.png" alt="YouTube"/></a>
         </div>
-        <div class="app-buttons">
-          <a href="#" class="google-play">Get it on Google Play</a>
-          <a href="#" class="apple-store">Download on the Apple Store</a>
+        <div className="app-buttons">
+          <a href="#" className="google-play">Get it on Google Play</a>
+          <a href="#" className="apple-store">Download on the Apple Store</a>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
+    <div className="footer-bottom">
       <p>© 2010-2024 skillgro.com. All rights reserved.</p>
-      <div class="policy-links">
+      <div className="policy-links">
         <a href="#">Term of Use</a> | <a href="#">Privacy Policy</a>
       </div>
     </div>

@@ -15,8 +15,8 @@ const Home = () => {
   return (
     <>
       <Navbar/>
-      <BodyImages/>
-      <BodyMarquee/>
+      {/* <BodyImages/> */}
+      {/* <BodyMarquee/> */}
       <Cards/>
       <Activity/>
       <HowItWorks/>

@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Review.css'
+import 'aos/dist/aos.css'; // Import AOS styles
+import AOS from 'aos';
 
 export default function Review() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,  // Animation duration
+      easing: 'ease',  // Animation easing
+      once: true,      // Whether animation should happen once or every time it comes into view
+    });
+  }, []);
+
   return (
     <>
-      <section className="review-section">
+      <section className="review-section" data-aos="zoom-in-up">
         <h2>What Our Customers Say</h2>
         <div className="review-container">
           <div className="review-card">

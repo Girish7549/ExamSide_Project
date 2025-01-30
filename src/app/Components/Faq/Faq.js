@@ -1,6 +1,8 @@
 "use client";
-import { useState } from "react";
+import React, { useEffect, useState } from 'react';
 import "./Faq.css";
+import 'aos/dist/aos.css'; // Import AOS styles
+import AOS from 'aos';
 
 const data = [
   {
@@ -51,6 +53,16 @@ const data = [
 ];
 
 export default function Faq() {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,  // Animation duration
+      easing: 'ease',  // Animation easing
+      once: true,      // Whether animation should happen once or every time it comes into view
+    });
+  }, []);
+
+
   const [activeIndex, setActiveIndex] = useState(null);
 
   const handleToggle = (index) => {
@@ -80,7 +92,7 @@ export default function Faq() {
     <>
       <div className="accordion">
         {data.map((item, index) => (
-          <div key={index} className="accordion-item">
+          <div key={index} className="accordion-item" data-aos="zoom-out-right">
             <button
               className="accordion-header"
               onClick={() => handleToggle(index)}
@@ -90,14 +102,13 @@ export default function Faq() {
                 {activeIndex === index ? (
                   <span className="material-symbols-outlined">🔽</span>
                 ) : (
-                  <span class="material-symbols-outlined">🔼</span>
+                  <span className="material-symbols-outlined">🔼</span>
                 )}
               </span>
             </button>
             <div
-              className={`accordion-body ${
-                activeIndex === index ? "active" : ""
-              }`}
+              className={`accordion-body ${activeIndex === index ? "active" : ""
+                }`}
             >
               <p>{item.answer}</p>
             </div>

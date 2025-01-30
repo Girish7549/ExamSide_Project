@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import "./HowItWorks.css";
-// import arrow from "../../../assests/work_arrow.webp";
+import 'aos/dist/aos.css'; // Import AOS styles
+import AOS from 'aos';
 
 export default function HowItWorks() {
+  
+  useEffect(() => {
+      AOS.init({
+        duration: 1000,  // Animation duration
+        easing: 'ease',  // Animation easing
+        once: true,      // Whether animation should happen once or every time it comes into view
+      });
+    }, []);
+
   return (
     <div className="bizgurukul-container">
       <h1 className="bizgurukul-title">
@@ -12,7 +22,7 @@ export default function HowItWorks() {
 
       <div className="bizgurukul-steps">
         {/* Step 1 */}
-        <div className="bizgurukul-step explore-step">
+        <div className="bizgurukul-step explore-step" data-aos="flip-up">
           <img
             src="https://www.bizgurukul.com/Biz/img/biz_image/explore.svg"
             alt="Explore"
@@ -31,7 +41,7 @@ export default function HowItWorks() {
         {/* <img className="bizgurukul-arrow arrow-1" src={arrow} alt="Arrow" /> */}
 
         {/* Step 2 */}
-        <div className="bizgurukul-step learn-step">
+        <div className="bizgurukul-step learn-step" data-aos="zoom-in-down">
           <img
             src="https://www.bizgurukul.com/Biz/img/biz_image/learn.svg"
             alt="Learn"
@@ -49,7 +59,7 @@ export default function HowItWorks() {
         {/* <img className="bizgurukul-arrow arrow-2" src={arrow} alt="Arrow" /> */}
 
         {/* Step 3 */}
-        <div className="bizgurukul-step inspire-step">
+        <div className="bizgurukul-step inspire-step" data-aos="flip-down">
           <img
             src="https://www.bizgurukul.com/Biz/img/biz_image/inspire.svg"
             alt="Inspire"
