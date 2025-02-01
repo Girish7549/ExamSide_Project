@@ -21,7 +21,7 @@ export default function Cards() {
   return (
     <>
       <div className="unique-container1">
-        <h4 className="title-card ms-3" data-aos="zoom-in-left">Joint Entrance Examination</h4>
+        <h4 className="title-card ms-3" data-aos="zoom-in-left">Joint Entrance Examination Testing</h4>
         <div className="unique-container" >
           <div className="unique-card" data-aos="fade-right" >
             <div className="unique-header" >
@@ -51,7 +51,28 @@ export default function Cards() {
             </Link>
             
           </div>
-          <div className="unique-card" data-aos="fade-right">
+          <div className="unique-card" data-aos="fade-up">
+            <div className="unique-header">
+              <div className="unique-icon">
+                <img
+                  src="https://app-assets.cdn.examgoal.net/fly/@width/image/exam-icons/in/jee/jee-advanced.png"
+                  alt="JEE Advanced Icon"
+                />
+              </div>
+              <div className="unique-text">
+                <h2>JEE Advanced</h2>
+                <p>Previous Years Questions with Solutions</p>
+              </div>
+            </div>
+            <div className="unique-buttons">
+              <button className="unique-paper-btn">Paper Wise</button>
+              <button className="unique-chapter-btn">Chapter Wise</button>
+            </div>
+            <button className="unique-mock-btn">
+              Take Mock Test or Practice
+            </button>
+          </div>
+          <div className="unique-card" data-aos="fade-down">
             <div className="unique-header">
               <div className="unique-icon">
                 <img
@@ -93,7 +114,7 @@ export default function Cards() {
               Take Mock Test or Practice
             </button>
           </div>
-          <div className="unique-card" data-aos="fade-left">
+          <div className="unique-card " data-aos="fade-up">
             <div className="unique-header">
               <div className="unique-icon">
                 <img
@@ -114,7 +135,7 @@ export default function Cards() {
               Take Mock Test or Practice
             </button>
           </div>
-          <div className="unique-card " data-aos="flip-right">
+          <div className="unique-card" data-aos="fade-up">
             <div className="unique-header">
               <div className="unique-icon">
                 <img
@@ -135,7 +156,7 @@ export default function Cards() {
               Take Mock Test or Practice
             </button>
           </div>
-          <div className="unique-card" data-aos="flip-right">
+          <div className="unique-card" data-aos="fade-up">
             <div className="unique-header">
               <div className="unique-icon">
                 <img
@@ -156,28 +177,7 @@ export default function Cards() {
               Take Mock Test or Practice
             </button>
           </div>
-          <div className="unique-card" data-aos="flip-right">
-            <div className="unique-header">
-              <div className="unique-icon">
-                <img
-                  src="https://app-assets.cdn.examgoal.net/fly/@width/image/exam-icons/in/jee/jee-advanced.png"
-                  alt="JEE Advanced Icon"
-                />
-              </div>
-              <div className="unique-text">
-                <h2>JEE Advanced</h2>
-                <p>Previous Years Questions with Solutions</p>
-              </div>
-            </div>
-            <div className="unique-buttons">
-              <button className="unique-paper-btn">Paper Wise</button>
-              <button className="unique-chapter-btn">Chapter Wise</button>
-            </div>
-            <button className="unique-mock-btn">
-              Take Mock Test or Practice
-            </button>
-          </div>
-          <div className="unique-card" data-aos="flip-right">
+          <div className="unique-card" data-aos="fade-up">
             <div className="unique-header">
               <div className="unique-icon">
                 <img
@@ -198,7 +198,7 @@ export default function Cards() {
               Take Mock Test or Practice
             </button>
           </div>{" "}
-          <div className="unique-card" data-aos="zoom-in">
+          <div className="unique-card" data-aos="fade-up">
             <div className="unique-header">
               <div className="unique-icon">
                 <img
@@ -219,7 +219,7 @@ export default function Cards() {
               Take Mock Test or Practice
             </button>
           </div>
-          <div className="unique-card" data-aos="zoom-in">
+          <div className="unique-card" data-aos="fade-up">
             <div className="unique-header">
               <div className="unique-icon">
                 <img
@@ -240,7 +240,7 @@ export default function Cards() {
               Take Mock Test or Practice
             </button>
           </div>
-          <div className="unique-card" data-aos="zoom-in">
+          <div className="unique-card" data-aos="fade-up">
             <div className="unique-header">
               <div className="unique-icon">
                 <img
@@ -261,7 +261,7 @@ export default function Cards() {
               Take Mock Test or Practice
             </button>
           </div>
-          <div className="unique-card" data-aos="zoom-in">
+          <div className="unique-card" data-aos="fade-up">
             <div className="unique-header">
               <div className="unique-icon">
                 <img
@@ -282,7 +282,7 @@ export default function Cards() {
               Take Mock Test or Practice
             </button>
           </div>
-          <div className="unique-card" data-aos="flip-left">
+          <div className="unique-card" data-aos="fade-up">
             <div className="unique-header">
               <div className="unique-icon">
                 <img
@@ -303,7 +303,7 @@ export default function Cards() {
               Take Mock Test or Practice
             </button>
           </div>
-          <div className="unique-card" data-aos="flip-left">
+          <div className="unique-card" data-aos="fade-up">
             <div className="unique-header">
               <div className="unique-icon">
                 <img
@@ -324,7 +324,7 @@ export default function Cards() {
               Take Mock Test or Practice
             </button>
           </div>
-          <div className="unique-card" data-aos="flip-left">
+          <div className="unique-card" data-aos="fade-up">
             <div className="unique-header">
               <div className="unique-icon">
                 <img
@@ -345,7 +345,7 @@ export default function Cards() {
               Take Mock Test or Practice
             </button>
           </div>
-          <div className="unique-card" data-aos="flip-left">
+          <div className="unique-card" data-aos="fade-up">
             <div className="unique-header">
               <div className="unique-icon">
                 <img
