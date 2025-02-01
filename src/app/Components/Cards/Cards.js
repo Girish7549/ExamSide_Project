@@ -21,7 +21,7 @@ export default function Cards() {
   return (
     <>
       <div className="unique-container1">
-        <h4 className="title-card ms-3" data-aos="zoom-in-left">Joint Entrance Examination Testing</h4>
+        <h4 className="title-card ms-3" data-aos="zoom-in-left">Joint Entrance Examination</h4>
         <div className="unique-container" >
           <div className="unique-card" data-aos="fade-right" >
             <div className="unique-header" >
